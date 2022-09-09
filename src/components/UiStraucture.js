@@ -11,7 +11,7 @@ import {
 import Dash from './Dash';
 import MUser from './MUser';
 import Complaints from './Complaints';
-import Generatereport from './Generatereports';
+import MAccount from './MAccount';
 
 function UiStructure
 () {
@@ -55,8 +55,7 @@ function UiStructure
             <li className='p-4 border-b border-black cursor-pointer nav-link active' aria-current="page" onClick={ () => setContentVisible( 0 ) }> Dashboard</li>
             <li className='p-4 border-b border-black cursor-pointer nav-link' data-bs-toggle="pill" onClick={ () => setContentVisible( 1 ) }>Manage Users</li>
             <li className='p-4 border-b border-black cursor-pointer nav-link' data-bs-toggle="pill" onClick={ () => setContentVisible( 2 ) }>Complaints</li>
-            <li className='p-4 border-b border-black cursor-pointer nav-link' data-bs-toggle="pill" onClick={ () => setContentVisible( 3 ) }>Generate report</li>
-            <li className='p-4 border-b border-black cursor-pointer nav-link' data-bs-toggle="pill" onClick={ () => setContentVisible( 4 ) }>Manage Account</li>
+            <li className='p-4 border-b border-black cursor-pointer nav-link' data-bs-toggle="pill" onClick={ () => setContentVisible( 3 ) }>Manage Account</li>
             <li className='p-4 cursor-pointer'>Logout</li>
             
             
@@ -71,8 +70,7 @@ function UiStructure
      { contentVisible === 0 && <Dash/>}
      { contentVisible === 1 && <MUser/>}
      { contentVisible === 2 && <Complaints/>}
-     { contentVisible === 3 && <Generatereport/>}
-     { contentVisible === 4 && <Complaints/>}
+     { contentVisible === 3 && <MAccount/>}
     </div>  
         
     </div>
