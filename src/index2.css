@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+
+body {
+  background-color: white;
+  background-size: cover;
+  background-position: top center;
+  font-family: 'Josefin Sans', cursive;
+ }
+
+nav{
+  
+background-color: #009387;
+  height: 100%;
+  position:fixed;
+   
+}
+
+
+
+.gn{
+  text-align: right;
+}
+
+#cd :hover{
+  color: white;
+  background-color: #009387;
+  transition: all 0.3s ease-out;
+}
+
+#bt{
+  
+  background-color: #009387;
+}
+
+Th,Td{
+  text-align: left;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 20px;
+}
+ @layer components{
+    .header-icon {
+      @apply w-6 h-6 cursor-pointer
+    }
+    .nav-icon {
+      @apply w-6 h-6 cursor-pointer
+    }
+    .invest-icon{
+      @apply w-6 h-6 stroke-gray-600
+    }
+  }
