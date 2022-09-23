@@ -12,12 +12,6 @@ import Modal from './Modal';
 
  
 
-  const [modalOn, setModalOn] = useState(false);
-  const [choice, setChoice] = useState(false)
-
-  const clicked = () => {
-    setModalOn(true)
-  }
 
   return (
     
@@ -40,20 +34,7 @@ import Modal from './Modal';
                 <button className='border w-full my-5 py-2 transform hover:translate-y-1 transition duration-200 ease-in-out text-white' id="bt" onClick={routeChange}>Login</button>
                 <div className='flex justify-between'>
                     <p className='flex items-center'><input className='mr-2' type="checkbox" /> Remember Me</p>
-                    <div className="flex  cursor-pointer justify-center w-1/3  p-4  m-6 rounded-full text-white transform hover:translate-x-1 transition duration-200 ease-in-out" id="bt"
-
-onClick={clicked}
->
-Sign up
-</div>
-{choice &&
-      <div className="flex justify-center">
-        <div className="flex  justify-center w-1/3 bg-green-100 m-4 p-6 text-xs text-black "> Signed up !!!</div>
-        </div>
-      }
-
-
-      {modalOn && < Modal setModalOn={setModalOn} setChoice={setChoice} />}
+                
  
                    
                 </div>
