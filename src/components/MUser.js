@@ -1,16 +1,13 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import { Table, Tbody, Tr, Th, Td } from 'react-super-responsive-table';
 import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
-import M1 from '../assets/M1.png';
-import M3 from '../assets/M3.png';
-import M4 from '../assets/M4.png';
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
 
 function MUser() {
   const downloadPdf = () => {
     const doc = new jsPDF()
-    doc.text("Complaints", 20, 10)
+    doc.text("System Users", 20, 10)
     doc.autoTable({
       html: '#mtable'
     })
@@ -18,6 +15,23 @@ function MUser() {
   }
 
   const [showModal, setShowModal] = useState(false);
+
+  const [users, setUsers] = React.useState([])
+
+
+  useEffect(() => {
+    
+    fetch("https://giverzenbackend.herokuapp.com/api/users").then(response => response.json())
+      .then(json => setUsers(json.results))
+
+  }, [])
+
+  useEffect(() => {
+    console.log(users);
+  }, [users])
+
+
+
   return (
     <div name='muser'>
        <div class="p-5 ml-64">
@@ -92,45 +106,25 @@ function MUser() {
          
          <Tbody>
          <Tr>
-             <Th>Avatar</Th>
+             <Th>ID</Th>
              <Th>Username</Th>
              <Th>E-Mail</Th>
              <Th>Points</Th>
              
            </Tr>
+           {users.map(item =>(
            <Tr>
-             <Td><img class="w-10 h-10 rounded-full mr-4" src={M4} alt='/' /></Td>
-             <Td>Thishan</Td>
-             <Td>shan23@gmail.com</Td>
-             <Td>50</Td>
+             <Td>{item.id}</Td>
+             <Td>{item.username}</Td>
+             <Td>{item.email}</Td>
+             <Td>{item.username}</Td>
              <Td><div class="btn">
               <button class="w-36 h-10 rounded-full text-white
         transform hover:translate-x-1 transition duration-200 ease-in-out" id="bt" onClick={() => setShowModal(true)}>
             Manage
         </button></div></Td>
            </Tr>
-           <Tr>
-           <Td><img class="w-10 h-10 rounded-full mr-4" src={M3} alt='/' /></Td>
-             <Td>Thuve</Td>
-             <Td>thika@gmail.com</Td>
-             <Td>76</Td>
-             <Td><div class="btn">
-              <button class="w-36 h-10 rounded-full text-white
-         transform hover:translate-x-1 transition duration-200 ease-in-out" id="bt"onClick={() => setShowModal(true)}>
-            Manage
-        </button></div></Td>
-           </Tr>
-           <Tr>
-           <Td><img class="w-10 h-10 rounded-full mr-4" src={M1} alt='/' /></Td>
-             <Td>Sandun</Td>
-             <Td>dundun@gmail.com</Td>
-             <Td>45</Td>
-             <Td><div class="btn">
-              <button class="w-36 h-10 rounded-full text-white
-         transform hover:translate-x-1 transition duration-200 ease-in-out"id="bt" onClick={() => setShowModal(true)}>
-            Manage
-        </button></div></Td>
-           </Tr>
+           ))}
          </Tbody>
        </Table>
             
