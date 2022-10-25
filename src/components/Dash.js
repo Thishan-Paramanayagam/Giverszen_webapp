@@ -23,7 +23,7 @@ function Dash() {
                           <div class="px-10 py-4 bg-green-200 w-64 h-40">
                               <div class="font-bold text-3xl mb-2 text-center">Total Users</div>
                               <br/>
-                              <h1 class="text-center font-bold text-2xl">438</h1>
+                              <h1 class="text-center font-bold text-2xl">23</h1>
                           </div>
 
                       </div>
@@ -34,7 +34,7 @@ function Dash() {
 
                           <div class="px-10 py-4 bg-green-200 w-64 h-40" >
                               <div class="font-bold text-3xl mb-2 text-center">Total Complaints</div>
-                              <h1 class="text-center font-bold text-2xl">29</h1>
+                              <h1 class="text-center font-bold text-2xl">2</h1>
                           </div>
 
                       </div>
@@ -45,7 +45,7 @@ function Dash() {
 
                           <div class="px-10 py-4 bg-green-200 w-64 h-40">
                               <div class="font-bold text-3xl mb-2 text-center">Total Listings</div>
-                              <h1 class="text-center font-bold text-2xl">132</h1>
+                              <h1 class="text-center font-bold text-2xl">10</h1>
                           </div>
 
                       </div>
@@ -59,8 +59,8 @@ function Dash() {
 <div class="max-w-sm rounded overflow-hidden shadow-2xl" id="cd">
 
     <div class="px-10 py-4 bg-green-200 w-64 h-40" >
-        <div class="font-bold text-3xl mb-2 text-center">Pending Listings</div>
-        <h1 class="text-center font-bold text-2xl">49</h1>
+        <div class="font-bold text-3xl mb-2 text-center">Total Drivers</div>
+        <h1 class="text-center font-bold text-2xl">4</h1>
     </div>
 
 </div>
@@ -70,7 +70,7 @@ function Dash() {
 
     <div class="px-10 py-4 bg-green-200 w-64 h-40" >
         <div class="font-bold text-3xl mb-2 text-center">Total Wanted</div>
-        <h1 class="text-center font-bold text-2xl">100</h1>
+        <h1 class="text-center font-bold text-2xl">1</h1>
     </div>
 
 </div>

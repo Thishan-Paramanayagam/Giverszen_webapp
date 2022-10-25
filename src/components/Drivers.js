@@ -4,36 +4,36 @@ import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
 
-function MUser() {
+function Drivers() {
   const downloadPdf = () => {
     const doc = new jsPDF()
-    doc.text("System Users", 20, 10)
+    doc.text("Drivers", 20, 10)
     doc.autoTable({
-      html: '#mtable'
+      html: '#dritable'
     })
-    doc.save('system_users.pdf')
+    doc.save('drivers.pdf')
   }
 
   const [showModal, setShowModal] = useState(false);
 
-  const [users, setUsers] = React.useState([])
+  const [drivers, setDrivers] = React.useState([])
 
 
   useEffect(() => {
     
-    fetch("https://giverzenbackend.herokuapp.com/api/users").then(response => response.json())
-      .then(json => setUsers(json.results))
+    fetch("https://giverzenbackend.herokuapp.com/api/drivers").then(response => response.json())
+      .then(json => setDrivers(json.results))
 
   }, [])
 
   useEffect(() => {
-    console.log(users);
-  }, [users])
+    console.log(drivers);
+  }, [drivers])
 
 
 
   return (
-    <div name='muser'>
+    <div name='driver'>
        <div class="p-5 ml-64">
     <div class="font-bold mb-2 text-center text-4xl mt-28">Manage Users</div>
     <div class=" shadow-green-900 justify-center">
@@ -68,18 +68,15 @@ function MUser() {
                 <div className="relative p-6 flex-auto">
                   <form className="bg-gray-200 shadow-md rounded px-8 pt-6 pb-8 w-full">
                     <label className="block text-black text-sm font-bold mb-1">
-                      User Name
+                      Driver Name
                     </label>
                     <input className="shadow appearance-none border rounded w-full py-2 px-1 text-black" />
                     
                     <label className="block text-black text-sm font-bold mb-1">
-                      E-Mail
+                      Vehicle
                     </label>
                     <input className="shadow appearance-none border rounded w-full py-2 px-1  text-black" />
-                    <label className="block text-black text-sm font-bold mb-1">
-                      Mobile-No
-                    </label>
-                    <input className="shadow appearance-none border rounded w-full py-2 px-1 text-black" />
+                    
                     
                   </form>
                 </div>
@@ -100,23 +97,23 @@ function MUser() {
         </>
       ) : null}
        </div>
-          <Table class="max-w-[1240px] mx-auto" id="mtable">
+          <Table class="max-w-[1240px] mx-auto" id="dritable">
         
           
          
          <Tbody>
          <Tr>
              <Th>ID</Th>
-             <Th>Username</Th>
-             <Th>E-Mail</Th>
-             
+             <Th>Driver name</Th>
+             <Th>Vehicle</Th>
+            
              
            </Tr>
-           {users.map(item =>(
+           {drivers.map(item =>(
            <Tr>
              <Td>{item.id}</Td>
-             <Td>{item.username}</Td>
-             <Td>{item.email}</Td>
+             <Td>{item.Name}</Td>
+             <Td>{item.Vehicle}</Td>
              
              <Td><div class="btn">
               <button class="w-36 h-10 rounded-full text-white
@@ -137,4 +134,4 @@ function MUser() {
   )
 }
 
-export default MUser
+export default Drivers

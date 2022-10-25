@@ -13,7 +13,8 @@ import MUser from './MUser';
 import Complaints from './Complaints';
 import MAccount from './MAccount';
 import Listings from './Listings';
-import {FaRegUserCircle} from 'react-icons/fa';
+import Drivers from './Drivers';
+//import {FaRegUserCircle} from 'react-icons/fa';
 
 
 function UiStructure
@@ -60,7 +61,8 @@ function UiStructure
             <li className='p-4 border-b border-white cursor-pointer nav-link' data-bs-toggle="pill" onClick={ () => setContentVisible( 1 ) }>Manage Users</li>
             <li className='p-4 border-b border-white cursor-pointer nav-link' data-bs-toggle="pill" onClick={ () => setContentVisible( 2 ) }>Complaints</li>
             <li className='p-4 border-b border-white cursor-pointer nav-link' data-bs-toggle="pill" onClick={ () => setContentVisible( 3 ) }>Listings</li>
-            <li className='p-4 border-b border-white cursor-pointer nav-link' data-bs-toggle="pill" onClick={ () => setContentVisible( 4 ) }><FaRegUserCircle className="header-icon"/> Manage Account</li>
+            <li className='p-4 border-b border-white cursor-pointer nav-link' data-bs-toggle="pill" onClick={ () => setContentVisible( 4 ) }>Drivers</li>
+            <li className='p-4 border-b border-white cursor-pointer nav-link' data-bs-toggle="pill" onClick={ () => setContentVisible( 5 ) }> Manage Account</li>
             <li className='p-4 cursor-pointer ' onClick={() => setShowModal(true)}>Logout</li>
             
             
@@ -100,7 +102,8 @@ function UiStructure
      { contentVisible === 1 && <MUser/>}
      { contentVisible === 2 && <Complaints/>}
      { contentVisible === 3 && <Listings/>}
-     { contentVisible === 4 && <MAccount/>}
+     { contentVisible === 4 && <Drivers/>}
+     { contentVisible === 5 && <MAccount/>}
     </div>  
         
     </div>
