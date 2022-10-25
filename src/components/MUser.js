@@ -18,6 +18,15 @@ function MUser() {
 
   const [users, setUsers] = React.useState([])
 
+  const deleteuser = (id) => {
+   
+    fetch(`https://giverzenbackend.herokuapp.com/api/delete/${id}`, { method: 'DELETE' })
+    .then(() => this.setState({ status: 'Delete successful' }));
+
+    setUsers(users.filter(item => item.id !== id))
+
+    
+}
 
   useEffect(() => {
     
@@ -120,8 +129,8 @@ function MUser() {
              
              <Td><div class="btn">
               <button class="w-36 h-10 rounded-full text-white
-        transform hover:translate-x-1 transition duration-200 ease-in-out" id="bt" onClick={() => setShowModal(true)}>
-            Manage
+        transform hover:translate-x-1 transition duration-200 ease-in-out" id="bt" onClick={ () => deleteuser(item.id)}>
+            Delete
         </button></div></Td>
            </Tr>
            ))}

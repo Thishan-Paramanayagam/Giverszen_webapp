@@ -18,7 +18,15 @@ function Drivers() {
 
   const [drivers, setDrivers] = React.useState([])
 
+  const deletedriver = (id) => {
+   
+    fetch(`https://giverzenbackend.herokuapp.com/api/deldriver/${id}`, { method: 'DELETE' })
+    .then(() => this.setState({ status: 'Delete successful' }));
 
+    setDrivers(drivers.filter(item => item.id !== id))
+
+    
+}
   useEffect(() => {
     
     fetch("https://giverzenbackend.herokuapp.com/api/drivers").then(response => response.json())
@@ -35,7 +43,7 @@ function Drivers() {
   return (
     <div name='driver'>
        <div class="p-5 ml-64">
-    <div class="font-bold mb-2 text-center text-4xl mt-28">Manage Users</div>
+    <div class="font-bold mb-2 text-center text-4xl mt-28">Manage Drivers</div>
     <div class=" shadow-green-900 justify-center">
       
       <div class=" w-full lg:max-w-full lg:flex justify-center">
@@ -55,7 +63,7 @@ function Drivers() {
             <div className="relative w-auto my-6 mx-auto max-w-3xl">
               <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                 <div className="flex items-center justify-center p-5 border-b border-solid border-gray-300 rounded-t ">
-                  <h3 className="text-3xl font=semibold">Manage User</h3>
+                  <h3 className="text-3xl font=semibold">Manage Driver</h3>
                   <button
                     className="bg-transparent border-0 text-black float-right ml-8"
                     onClick={() => setShowModal(false)}
@@ -117,8 +125,8 @@ function Drivers() {
              
              <Td><div class="btn">
               <button class="w-36 h-10 rounded-full text-white
-        transform hover:translate-x-1 transition duration-200 ease-in-out" id="bt" onClick={() => setShowModal(true)}>
-            Manage
+        transform hover:translate-x-1 transition duration-200 ease-in-out" id="bt" onClick={ () => deletedriver(item.id)}>
+            Delete
         </button></div></Td>
            </Tr>
            ))}

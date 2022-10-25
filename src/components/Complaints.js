@@ -4,6 +4,7 @@ import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
 
+
 function Complaints() {
 
   const downloadPdf = () => {
@@ -20,6 +21,8 @@ function Complaints() {
    
       fetch("https://giverzenbackend.herokuapp.com/api/complaints3", { method: 'DELETE' })
       .then(() => this.setState({ status: 'Delete successful' }));
+
+      setComplaints([])
   }
 
   const [complaints, setComplaints] = React.useState([])
@@ -66,6 +69,7 @@ function Complaints() {
      
       
       <Tbody>
+      
       <Tr>
           <Th>Complaint Detail</Th>
           <Th>Username</Th>
@@ -73,7 +77,9 @@ function Complaints() {
           <Th>Reported to</Th>
           
         </Tr>
-        {complaints.map(item =>(
+        
+        
+        {complaints ?  complaints.map(item =>(
         
         <Tr>
           <Td>{item.complaint}</Td>
@@ -83,7 +89,7 @@ function Complaints() {
         
         </Tr>
         
-        ))}
+        )): <p>No complaints found this time</p>}
       </Tbody>
     </Table>
          
@@ -102,3 +108,4 @@ function Complaints() {
 }
 
 export default Complaints
+
