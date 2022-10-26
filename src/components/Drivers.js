@@ -27,6 +27,18 @@ function Drivers() {
 
     
 }
+
+const adddriver = () => {
+   
+  fetch("https://giverzenbackend.herokuapp.com/api/adddriver", { method: 'POST' })
+  .then(() => this.setState({ status: 'Delete successful' }));
+
+ // setDrivers(drivers.filter(item => item.id !== id))
+
+  
+}
+
+
   useEffect(() => {
     
     fetch("https://giverzenbackend.herokuapp.com/api/drivers").then(response => response.json())
@@ -56,6 +68,11 @@ function Drivers() {
   Generate Report
   </span>
 </button>
+<button class="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-teal-300 to-lime-300 group-hover:from-teal-300 group-hover:to-lime-300 dark:text-white dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-lime-800" onClick={ () => setShowModal(true)}>
+  <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+  Add Driver
+  </span>
+</button>
 
       {showModal ? (
         <>
@@ -74,7 +91,7 @@ function Drivers() {
                   </button>
                 </div>
                 <div className="relative p-6 flex-auto">
-                  <form className="bg-gray-200 shadow-md rounded px-8 pt-6 pb-8 w-full">
+                  <form className="bg-gray-200 shadow-md rounded px-8 pt-6 pb-8 w-full" onSubmit={adddriver}>
                     <label className="block text-black text-sm font-bold mb-1">
                       Driver Name
                     </label>
@@ -84,19 +101,23 @@ function Drivers() {
                       Vehicle
                     </label>
                     <input className="shadow appearance-none border rounded w-full py-2 px-1  text-black" />
-                    
+                    <label className="block text-black text-sm font-bold mb-1">
+                      Cost per km
+                    </label>
+                    <input className="shadow appearance-none border rounded w-full py-2 px-1 text-black" />
+                    <label className="block text-black text-sm font-bold mb-1">
+                      Status
+                    </label>
+                    <input className="shadow appearance-none border rounded w-full py-2 px-1 text-black" />
                     
                   </form>
                 </div>
                 <div className="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
                 <div class="btn">
-              <button class="w-36 h-10 rounded-full text-white
-        transform hover:translate-x-1 transition duration-200 ease-in-out" id="bt" onClick={() => setShowModal(true)}>
-            Update
-        </button>
-        <button class="w-36 h-10 rounded-full text-white ml-4
-         transform hover:translate-x-1 transition duration-200 ease-in-out" id="bt"onClick={() => setShowModal(true)}>
-            Delete
+              
+        <button class="w-36 h-10 rounded-full text-white 
+         transform hover:translate-x-1 transition duration-200 ease-in-out" id="bt" type='submit'>
+            Add
         </button></div>
                 </div>
               </div>
